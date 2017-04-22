@@ -21,16 +21,16 @@ export class MediaItemListComponent {
     this.paramsSubscription = this.activatedRoute.params
       .subscribe(params => {
         let medium = params['medium'];
-        if(medium.toLowerCase() === 'all'){
+        if(medium.toLowerCase() === 'all') {
           medium = '';
         }
         this.getMediaItems(medium);
       });
   }
 
-ngOnDestroy() {
-  this.paramsSubscription.unsubscribe();
-}
+  ngOnDestroy() {
+    this.paramsSubscription.unsubscribe();
+  }
 
   onMediaItemDelete(mediaItem) {
     this.mediaItemService.delete(mediaItem)
